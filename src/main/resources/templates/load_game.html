@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html data-ng-app="loadGame">
+<head>
+    <meta charset="UTF-8">
+    <title>Kalaha Game</title>
+    <script data-require="angular.js@1.2.x" src="https://code.angularjs.org/1.2.25/angular.js" data-semver="1.2.25"></script>
+    <script data-require="jquery@*" data-semver="2.1.1" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link href='/style.css' rel='stylesheet' type='text/css'/>
+    <script src="/lib/load_game.js"></script>
+</head>
+<body data-ng-controller="loadGameController">
+
+<div class="row">
+    <div class="col-md-3">
+        <h3>Enter the game ID</h3>
+        <input type="text" class="form-control" style="width: 150px;" data-ng-model="gameId" /><br />
+        <button data-ng-click="getGame()">Load</button>
+
+        <br>
+        <br>
+    </div>
+</div>
+
+
+<p style="color:red" data-ng-if="errorMessage ">Error message: {{errorMessage}}</p>
+
+<h1>
+    <---------- Player 1
+</h1>
+<table border="1" width="100%" align="center">
+    <tbody>
+    <tr align="center">
+        <td></td>
+        <td><div class="fancy">{{game.board.pitMap[6].stoneCount}}</div></td>
+        <td><div class="fancy">{{game.board.pitMap[5].stoneCount}}</div></td>
+        <td><div class="fancy">{{game.board.pitMap[4].stoneCount}}</div></td>
+        <td><div class="fancy">{{game.board.pitMap[3].stoneCount}}</div></td>
+        <td><div class="fancy">{{game.board.pitMap[2].stoneCount}}</div></td>
+        <td><div class="fancy">{{game.board.pitMap[1].stoneCount}}</div></td>
+        <td></td>
+    </tr>
+
+    <tr align="center">
+        <td><div class="fancy">{{game.board.pitMap[7].stoneCount}}</div></td>
+        <td colspan="6"></td>
+        <td><div class="fancy">{{game.board.pitMap[14].stoneCount}}</div></td>
+    </tr>
+
+    <tr align="center">
+        <td></td>
+        <td><div class="fancy">{{game.board.pitMap[8].stoneCount}}</div></td>
+        <td><div class="fancy">{{game.board.pitMap[9].stoneCount}}</div></td>
+        <td><div class="fancy">{{game.board.pitMap[10].stoneCount}}</div></td>
+        <td><div class="fancy">{{game.board.pitMap[11].stoneCount}}</div></td>
+        <td><div class="fancy">{{game.board.pitMap[12].stoneCount}}</div></td>
+        <td><div class="fancy">{{game.board.pitMap[13].stoneCount}}</div></td>
+        <td></td>
+    </tr>
+
+    </tbody>
+
+</table>
+<h1>
+    ----------> Player 2
+</h1>
+<br>
+<h1>
+    Game status: {{game.gameStatus}}
+</h1>
+</body>
+</html>

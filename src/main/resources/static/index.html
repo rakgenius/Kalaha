@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html data-ng-app="kalahaGame">
+<head>
+    <meta charset="UTF-8">
+    <title>Kalaha Game</title>
+    <script data-require="angular.js@1.2.x" src="https://code.angularjs.org/1.2.25/angular.js" data-semver="1.2.25"></script>
+    <script data-require="jquery@*" data-semver="2.1.1" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link href='/style.css' rel='stylesheet' type='text/css'/>
+    <script src="/lib/app.js"></script>
+</head>
+<body data-ng-controller="gameController">
+<h1>
+    Game status: {{game.gameStatus}}
+</h1>
+
+<h1 data-ng-if="game.gameStatus == 'FINISHED' " >
+    <span data-ng-if="game.winner == null">Draw</span>
+    <span data-ng-if="game.winner != null">Winner: {{game.winner.name}}</span>
+</h1>
+
+<p style="color:red" data-ng-if="errorMessage ">Error message: {{errorMessage}}</p>
+
+<h1>
+    <---------- Player 1
+</h1>
+<table border="1" width="100%" align="center">
+    <tbody>
+    <tr align="center">
+        <td></td>
+        <td data-ng-click='play(game.id, 1, 6)'><div class="fancy">{{game.board.pitMap[6].stoneCount}}</div></td>
+        <td data-ng-click='play(game.id, 1, 5)'><div class="fancy">{{game.board.pitMap[5].stoneCount}}</div></td>
+        <td data-ng-click='play(game.id, 1, 4)'><div class="fancy">{{game.board.pitMap[4].stoneCount}}</div></td>
+        <td data-ng-click='play(game.id, 1, 3)'><div class="fancy">{{game.board.pitMap[3].stoneCount}}</div></td>
+        <td data-ng-click='play(game.id, 1, 2)'><div class="fancy">{{game.board.pitMap[2].stoneCount}}</div></td>
+        <td data-ng-click='play(game.id, 1, 1)'><div class="fancy">{{game.board.pitMap[1].stoneCount}}</div></td>
+        <td></td>
+    </tr>
+
+    <tr align="center">
+        <td><div class="fancy">{{game.board.pitMap[7].stoneCount}}</div></td>
+        <td colspan="6"></td>
+        <td><div class="fancy">{{game.board.pitMap[14].stoneCount}}</div></td>
+    </tr>
+
+    <tr align="center">
+        <td></td>
+        <td data-ng-click='play(game.id, 2, 8)'><div class="fancy">{{game.board.pitMap[8].stoneCount}}</div></td>
+        <td data-ng-click='play(game.id, 2, 9)'><div class="fancy">{{game.board.pitMap[9].stoneCount}}</div></td>
+        <td data-ng-click='play(game.id, 2, 10)'><div class="fancy">{{game.board.pitMap[10].stoneCount}}</div></td>
+        <td data-ng-click='play(game.id, 2, 11)'><div class="fancy">{{game.board.pitMap[11].stoneCount}}</div></td>
+        <td data-ng-click='play(game.id, 2, 12)'><div class="fancy">{{game.board.pitMap[12].stoneCount}}</div></td>
+        <td data-ng-click='play(game.id, 2, 13)'><div class="fancy">{{game.board.pitMap[13].stoneCount}}</div></td>
+        <td></td>
+    </tr>
+
+    </tbody>
+
+</table>
+
+<h1>
+    ----------> Player 2
+</h1>
+
+</body>
+</html>

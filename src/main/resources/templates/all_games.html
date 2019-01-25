@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Games</title>
+</head>
+<body>
+Current Games:
+<table border="1" width="100%" align="center">
+    <tbody>
+    <tr>
+        <td>Game Id</td>
+        <td>Game Status</td>
+        <td>Player 1 Home pit count</td>
+        <td>Player 2 Home pit count</td>
+    </tr>
+        <tr th:each="t : ${gamesList}">
+        <td th:text="${t.id}"></td>
+        <td th:text="${t.gameStatus}"></td>
+        <td th:text="${t.board.pitMap[7].stoneCount}"></td>
+        <td th:text="${t.board.pitMap[14].stoneCount}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
